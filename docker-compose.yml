@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+
+  ipfs_01:
+    container_name: ipfs01
+    image: ipfs/go-ipfs:latest
+    restart: always
+    volumes:
+      - ./01/staging:/export                 # (可不修改)修改 挂载目录 ./staging
+      - ./01/data:/data/ipfs                 # (可不修改)修改 挂载目录 ./data
+    ports:
+      - 4001:4001
+      - 0.0.0.0:8081:8080
+      - 0.0.0.0:5001:5001
+  ipfs_02:
+    container_name: ipfs02
+    image: ipfs/go-ipfs:latest
+    restart: always
+    volumes:
+      - ./02/staging:/export                 # (可不修改)修改 挂载目录 ./staging
+      - ./02/data:/data/ipfs                 # (可不修改)修改 挂载目录 ./data
+    ports:
+      - 4002:4001
+      - 0.0.0.0:8082:8080
+      - 0.0.0.0:5002:5001
+  ipfs_03:
+    container_name: ipfs03
+    image: ipfs/go-ipfs:latest
+    restart: always
+    volumes:
+      - ./03/staging:/export                 # (可不修改)修改 挂载目录 ./staging
+      - ./03/data:/data/ipfs                 # (可不修改)修改 挂载目录 ./data
+    ports:
+      - 4003:4001
+      - 0.0.0.0:8083:8080
+      - 0.0.0.0:5003:5001
+  ipfs_04:
+    container_name: ipfs04
+    image: ipfs/go-ipfs:latest
+    restart: always
+    volumes:
+      - ./04/staging:/export                 # (可不修改)修改 挂载目录 ./staging
+      - ./04/data:/data/ipfs                 # (可不修改)修改 挂载目录 ./data
+    ports:
+      - 4004:4001
+      - 0.0.0.0:8084:8080
+      - 0.0.0.0:5004:5001
+networks:
+  ipfs:
+    external: true
